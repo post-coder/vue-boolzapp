@@ -56,7 +56,7 @@
                         <div 
                             v-for="(contact, index) in contacts"
                             class="chat-preview"
-                            :class="index == activeContactIndex ? 'active' : ''"
+                            :class="contact == activeContact ? 'active' : ''"
                             @click="changeActiveContact(index)"
                         >
                             <img class="user-pic" :src="contact.avatar" alt="immagine Michele">
@@ -77,10 +77,10 @@
                     <div id="top-bar">
                         <div id="chat-profile">
                             <div id="chat-profile-image">
-                                <img src="./img/avatar_io.jpg" alt="profile pic">
+                                <img :src="activeContact.avatar" alt="profile pic">
                             </div>
                             <div>
-                                <div>Sofia</div>
+                                <div>{{activeContact.name}}</div>
                                 <span>
                                     Ultimo accesso oggi alle 12:00
                                 </span>
@@ -100,7 +100,7 @@
                         <div class="container">
 
                             <div 
-                                v-for="currentMessage in contacts[activeContactIndex].messages" 
+                                v-for="currentMessage in activeContact.messages" 
                                 class="message" 
                                 :class="currentMessage.status"
                             >

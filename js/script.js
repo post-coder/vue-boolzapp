@@ -166,13 +166,19 @@ createApp({
                 }
             ],
             
-            activeContactIndex: 0,
+
+            activeContact: {},
         }
+    },
+
+    mounted() {
+        this.activeContact = this.contacts[0]
     },
 
     methods: {
         changeActiveContact(index) {
-            this.activeContactIndex = index;
+            // this.activeContactIndex = index;
+            this.activeContact = this.contacts[index]
         },
     }
 }).mount('#app')
