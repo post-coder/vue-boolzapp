@@ -53,7 +53,12 @@
                     </div>
                     <div id="chat-list">
 
-                        <div v-for="contact in contacts" class="chat-preview">
+                        <div 
+                            v-for="(contact, index) in contacts"
+                            class="chat-preview"
+                            :class="index == activeContactIndex ? 'active' : ''"
+                            @click="changeActiveContact(index)"
+                        >
                             <img class="user-pic" :src="contact.avatar" alt="immagine Michele">
                             
                             <div>
@@ -94,80 +99,19 @@
 
                         <div class="container">
 
-                            <div class="message sent">
+                            <div 
+                                v-for="currentMessage in contacts[activeContactIndex].messages" 
+                                class="message" 
+                                :class="currentMessage.status"
+                            >
                                 <div class="text">
-                                    Hai portato a spasso il cane?
+                                    {{currentMessage.message}}
                                 </div>
                                 <div class="time">
-                                    12:00
+                                    {{currentMessage.date}}
                                 </div>
                             </div>
     
-                            <div class="message sent">
-                                <div class="text">
-                                    Ricordati di stendere i panni
-                                </div>
-                                <div class="time">
-                                    12:00
-                                </div>
-                            </div>
-    
-                            <div class="message received">
-                                <div class="text">
-                                    Tutto fatto!
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ut beatae velit voluptates placeat excepturi hic? Aperiam quis similique, laudantium quod in quaerat fugiat sit beatae facilis cumque odit ipsam!
-                                </div>
-                                <div class="time">
-                                    12:00
-                                </div>
-                            </div>
-
-                            <div class="message sent">
-                                <div class="text">
-                                    Ricordati di stendere i panni
-                                </div>
-                                <div class="time">
-                                    12:00
-                                </div>
-                            </div>
-    
-                            <div class="message received">
-                                <div class="text">
-                                    Tutto fatto!
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ut beatae velit voluptates placeat excepturi hic? Aperiam quis similique, laudantium quod in quaerat fugiat sit beatae facilis cumque odit ipsam!
-                                </div>
-                                <div class="time">
-                                    12:00
-                                </div>
-                            </div>
-
-                            <div class="message sent">
-                                <div class="text">
-                                    Ricordati di stendere i panni
-                                </div>
-                                <div class="time">
-                                    12:00
-                                </div>
-                            </div>
-    
-                            <div class="message received">
-                                <div class="text">
-                                    Tutto fatto!
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ut beatae velit voluptates placeat excepturi hic? Aperiam quis similique, laudantium quod in quaerat fugiat sit beatae facilis cumque odit ipsam!
-                                </div>
-                                <div class="time">
-                                    12:00
-                                </div>
-                            </div>
-
-                            <div class="message sent">
-                                <div class="text">
-                                    Ricordati di stendere i panni
-                                </div>
-                                <div class="time">
-                                    12:00
-                                </div>
-                            </div>
 
                         </div>
                         
