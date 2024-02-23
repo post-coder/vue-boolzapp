@@ -46,7 +46,7 @@ body {
 }
 
 #ui {
-    width: 1000px;
+    width: 1300px;
     /* test */
     display: flex;
 
@@ -97,6 +97,42 @@ body {
 
     padding: 0 15px;
 }
+
+
+#notification-reminder {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #8edafc;
+
+    padding: 14px 20px;
+}
+
+#notification-reminder .fa-solid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50px;
+    height: 50px;
+
+    padding: 6px;
+
+    border-radius: 50%;
+
+    background-color: white;
+
+}
+
+
+#notification-reminder span {
+    display: block;
+}
+
+#notification-reminder a {
+    color: #444;
+}
+
 
 
 #active-chat {
